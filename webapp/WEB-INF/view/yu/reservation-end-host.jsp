@@ -217,28 +217,34 @@
 			},
 			
 			//날짜 클릭 이벤트
+			//변수값을 주면 날짜 데이터를 받아올 수 있다
 		  	dateClick: function(info) {
+		  		//예약된 건이 없는 날짜만 가능날짜 설정이 가능함
 		  		if(info.event == null){
+		  			//컨트롤러에 날짜값을 넘겨주면 서버에서 가능날짜를 추가 or 삭제한다
 		  			window.location.href = '${pageContext.request.contextPath}/bookingEndHostDate?hostNo=${param.hostNo}&date='+info.dateStr;
 		  		}			
 		  	},
 
+		  	//날짜별 특정 이벤트 표시
 			events: [
-				// ajax 처리로 데이터를 로딩 시킨다. 
+				// ajax를 이용하여 DB에 저장된 값을 불러온다
 				$.ajax({ 
 					type:"get", 
-					url:"${pageContext.request.contextPath}/calendar?hostNo=${param.hostNo}", 
+					//컨트롤러에 호스트번호값을 넘겨주고 예약 리스트를 받아온다
+					url:"${pageContext.request.contextPath}/calendar?hostNo=${param.hostNo}",
 					dataType : "json",
 					success: function (bList) {
 						for(var i=0; i<bList.length; i++) {
+							
+							//캘린더에 이벤트를 추가한다
 							calendar.addEvent({
-								title: bList[i].guestName+'('+bList[i].status+')',
-								start: bList[i].checkin,
-								end: bList[i].checkout,
-								status: 'booking',
-								color: '#ffafb0',
-								textColor: '#000000',
-								status: 'booking'
+								title: bList[i].guestName+'('+bList[i].status+')', //게스트이름
+								start: bList[i].checkin, //펫시팅 시작날짜
+								end: bList[i].checkout, //펫시팅 종료날짜
+								status: 'booking', //다른이벤트와 분리하기위한 값
+								color: '#ffafb0', //바탕색
+								textColor: '#000000' //글자색
 							});
 						}
 						
@@ -246,7 +252,7 @@
 				}),
 				
 				$.ajax({ 
-					type:"get", 
+					type:"get",
 					url:"${pageContext.request.contextPath}/calendarAble?hostNo=${param.hostNo}", 
 					dataType : "json",
 					success: function (aList) {

@@ -67,10 +67,10 @@
 				<form action="${pageContext.request.contextPath}/m/login" method="post">
 		            <div id="u-idPass" class="row">
 		                <div>
-		                	<input id="u-id" name="id" type="text" placeholder="아이디">
+		                	<input id="u-id" name="id" type="text" placeholder="아이디" value="testGuest">
 		                </div>
 		                <div>
-		                	<input id="u-pass" name="password" type="password" placeholder="비밀번호">
+		                	<input id="u-pass" name="password" type="password" placeholder="비밀번호" value="1234">
 		                </div>
 		            </div>
 		            <div class="row paddingLogin">
@@ -97,8 +97,8 @@ $("#logout-m").on("click", function(){
 /* 로그인버튼누름 */
 $("#login-m").on("click", function(){
 	//초기화
-	$("#u-id").val("");
-	$("#u-pass").val("");
+	//$("#u-id").val("");
+	//$("#u-pass").val("");
 	
 	$('#loginForm').modal('show');
 });

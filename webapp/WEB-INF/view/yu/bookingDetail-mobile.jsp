@@ -47,8 +47,8 @@
 
                     <div id="btn-area1">
                     	<c:if test="${bvo.status == '펫시팅중' || bvo.status == '예약완료'}">
-                    		<button name="imgupload" class="btn btn-info add-img4" data-photodate="${pListDate[0].photoDate}">이미지 업로드</button>
-                    		<button class="btn btn-default add-img2" onclick = "window.history.back()">목록으로 돌아가기</button>
+                    		<%-- <button name="imgupload" class="btn btn-info add-img4" data-photodate="${pListDate[0].photoDate}">이미지 업로드</button> --%>
+                    		<button class="btn btn-default add-img3" onclick = "window.history.back()">목록으로 돌아가기</button>
                     	</c:if>
                     	<c:if test="${bvo.status != '펫시팅중' && bvo.status != '예약완료'}">
                     		<button class="btn btn-default add-img3" onclick = "window.history.back()">목록으로 돌아가기</button>
@@ -119,105 +119,6 @@
                            
                         </div>
                     </div>
-
-                    <%-- <div id="information" class="col-xs-4">
-                        <!-- 게스트 정보 넣는 공간 -->
-                        <div class="info">
-                            <h2>게스트 정보</h2>
-                            <hr>
-                            <c:if test="${!empty mvo.name}">
-	                            <div id="dogCard">
-									<div class="row"></div>
-									<div id="cardHeader">
-										<p id="headerText" class="text-center">강아지 등록증</p>
-									</div>
-									<hr>
-									<div id="cardBody" class="clearfix">
-										<form action="">
-											<div id="imgFile" data-usersno="${bvo.usersNo}">
-												<c:if test="${empty mvo.photo}">
-													<img id="myDogImg" src="${pageContext.request.contextPath}/assets/images/myDogImg2.png">
-												</c:if>
-												<c:if test="${!empty mvo.photo}">
-													<img id="myDogImg" src="${pageContext.request.contextPath}/photo/${mvo.photo}">
-												</c:if>
-												<p>갤러리보기</p>
-											</div>
-											<div id="myDogInfo">
-												<p id="pName" class="text-center">${mvo.name}</p>
-												<p><strong class="index">생년월일 :</strong> ${mvo.birth}</p>
-												<p><strong class="index">성별 :</strong> ${mvo.gender}</p>
-												<p><strong class="index">품종 :</strong> ${mvo.breed}</p>
-												<p><strong class="index">몸무게 :</strong> ${mvo.weight}kg</p>
-												<c:if test="${mvo.neuter == 1}">
-													<p><strong class="index">중성화 :</strong> O</p>
-												</c:if>
-												<c:if test="${mvo.neuter == 0}">
-													<p><strong class="index">중성화 :</strong> X</p>
-												</c:if>
-											</div>
-										</form>
-									</div>
-								</div>
-							</c:if>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-6 catalog f-b">게스트이름</div>
-                                    <div class="col-xs-6">${bvo.guestName}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">연락처</div>
-                                    <div class="col-xs-6">${bvo.guestHp}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 예약정보 넣는 공간 -->
-                        <div class="info">
-                            <h2>예약 정보</h2>
-                            <hr>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">위치</div>
-                                    <div class="col-xs-6">${bvo.adress1} ${bvo.adress2} ${bvo.adress3}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">펫설명/요청사항</div>
-                                    <div class="col-xs-6">${bvo.note}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">펫시팅일자</div>
-                                    <div class="col-xs-6">${bvo.checkin} ~ ${bvo.checkout}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 결제정보 넣는 공간 -->
-                        <div class="info">
-                            <h2>결제 정보</h2>
-                            <hr>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">가격(1박)</div>
-                                    <div class="col-xs-6">₩ ${bvo.bookingDate}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">시팅일수</div>
-                                    <div class="col-xs-6">${bvo.days}일</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">반려견 수</div>
-                                    <div class="col-xs-6">${bvo.ea}마리</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 f-b">총 결제 금액</div>
-                                    <div class="col-xs-6">₩ ${bvo.bookingDate * bvo.days * bvo.ea}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
- --%>
                 </div>
             
            

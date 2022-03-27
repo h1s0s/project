@@ -194,10 +194,6 @@
 	float: left;
 }
 
-#imgupdateModal #modalSubmit {
-	margin: 0px 0px 10px 15px;
-}
-
 #imgupdateModal .gImg {
 	cursor: pointer;
 }

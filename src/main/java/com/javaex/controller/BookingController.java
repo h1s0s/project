@@ -330,14 +330,31 @@ public class BookingController {
 		
 		model.addAttribute("pList", pList);
 		
-		//mydog
-		MyDogVo mvo = bookingService.mydogSelect(bvo.getUsersNo());
-		String[] arry = mvo.getBirth().split(" ");
-		arry[0].replace("-", ".");
-		model.addAttribute("mvo",mvo);
-		
 		return "yu/bookingDetail-mobile";
 	}
+	
+	//모바일 예약상세
+		@RequestMapping("/m/bookingDetailGuset")
+		public String bookingDetailGusetM(Model model, @RequestParam int bookingNo) {
+			System.out.println("BookingController > bookingDetailGusetM");
+			
+			//예약 + 게스트 가져오기
+			BookingVo bvo = bookingService.bookingDetailGuest(bookingNo);
+			model.addAttribute("bvo", bvo);
+			
+			List<List<PhotoVo>> pList = new ArrayList<List<PhotoVo>>();
+
+			for(int i=0; (i+1)<=bvo.getDays(); i++) {
+				//포토 리스트 가져오기
+				int day = i+1;
+				List<PhotoVo> pListDate = bookingService.bookingGallery(bookingNo, day);
+				pList.add(pListDate);
+			}
+			
+			model.addAttribute("pList", pList);
+			
+			return "yu/bookingDetail-mobile";
+		}
 	
 	//모바일 메인
 	@RequestMapping("/m/main")
@@ -346,7 +363,7 @@ public class BookingController {
 		
 		return "yu/main-mobile";
 	}
-	
+	/*
 	//모바일 로그인
 	@RequestMapping("/m/login")
 	public String loginM(UserVo uvo, HttpSession session, Model model) {
@@ -366,6 +383,37 @@ public class BookingController {
 		
 		//예약 + 게스트 리스트 가져오기
 		List<BookingVo> BookingList = bookingService.bookingEndHost(authUser.getHostNo());
+		
+		for(int i=0; i<BookingList.size(); i++) {
+			if(BookingList.get(i).getStatus().equals("펫시팅중")) {
+				bookinNo = BookingList.get(i).getBookingNo();
+			}
+		}
+		
+		System.out.println(bookinNo);
+		return "redirect:/m/bookingDetailHost?bookingNo="+bookinNo;
+		
+	}*/
+	
+	//모바일 로그인
+	@RequestMapping("/m/login")
+	public String loginM(UserVo uvo, HttpSession session, Model model) {
+		System.out.println("BookingController > loginM");
+		
+		int bookinNo = 0;
+		
+		UserVo authUser = bookingService.login(uvo);
+		System.out.println(authUser);
+		
+		if(authUser != null) {
+			session.setAttribute("authUser", authUser);
+		}else {
+			
+			return "redirect:m/main";
+		}
+		
+		//예약 + 게스트 리스트 가져오기
+		List<BookingVo> BookingList = bookingService.bookingEndGuest(authUser.getUsersNo());
 		
 		for(int i=0; i<BookingList.size(); i++) {
 			if(BookingList.get(i).getStatus().equals("펫시팅중")) {
