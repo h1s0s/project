@@ -17,21 +17,21 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-	<c:import url="/WEB-INF/view/includes/header.jsp"></c:import>
-	<div id="wrap">
-		<div id="container" class="clearfix">
-			<h2>상품 주문</h2>
-			<div id="payArea">
-				<div id="iteminfo">
-					<h3>주문 상품 정보</h3>
-					<img src="${pageContext.request.contextPath}/photo/${requestScope.itemVo.path}">
-					<div class="info">
-						<h4>${requestScope.itemVo.title}</h4>
-						<h4>1개</h4>
-						<h4>${requestScope.itemVo.stringcost}원</h4>
-					</div>
+<c:import url="/WEB-INF/view/includes/header.jsp"></c:import>
+<div id="wrap">
+	<div id="container" class="clearfix">
+		<h2>상품 주문</h2>
+		<div id="payArea">
+			<div id="iteminfo">
+				<h3>주문 상품 정보</h3>
+				<img src="${pageContext.request.contextPath}/photo/${requestScope.itemVo.path}">
+				<div class="info">
+					<h4>${requestScope.itemVo.title}</h4>
+					<h4>1개</h4>
+					<h4>${requestScope.itemVo.stringcost}원</h4>
 				</div>
-				<form action="${pageContext.request.contextPath}/shop/payment" method="get">
+			</div>
+			<form action="${pageContext.request.contextPath}/shop/payment" method="get">
 				<div id="userinfo">
 					<h3>주문자 정보</h3>
 					<div id="uinfo">
@@ -48,15 +48,14 @@
 						<input id="title" name="title" type="hidden" value="${requestScope.itemVo.title}">
 						<input id="ea" name="ea" type="hidden" value="1"></br>
 						<button id="payment-btn" type="submit" class="btn btn-primary color">결제하기</button>
-                    </div>
+					</div>
 				</div>
-				
-				</form>
-			</div>
-		</div><!-- container -->
-	</div><!-- wrap -->
+			</form>
+		</div>
+	</div><!-- container -->
+</div><!-- wrap -->
 
-	<c:import url="/WEB-INF/view/includes/footer.jsp"></c:import>
+<c:import url="/WEB-INF/view/includes/footer.jsp"></c:import>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
