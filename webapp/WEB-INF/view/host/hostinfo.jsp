@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <title>GairBnB - 펫시터 정보</title>
+	
 <!--CSS-->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css?after">
