@@ -27,7 +27,7 @@
 
 </head>
 <body>
-	<c:import url="/WEB-INF/view/includes/header.jsp"></c:import>
+    <c:import url="/WEB-INF/view/includes/header.jsp"></c:import>
     <div id="wrap">
         <div id="container">
             <div id="booking" class="col-xs-7 left info">
