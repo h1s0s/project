@@ -52,7 +52,7 @@
             </ul>
          </div>
       </c:when>
-      <c:otherwise><!-- 관리자 일때 -->
+      <c:otherwise>
          <div id="aside">
             <ul id="b-aside">
                <li class="menu">쇼핑관리<img src="/project/assets/images/aside_img.png" class="aside-img"></li>
