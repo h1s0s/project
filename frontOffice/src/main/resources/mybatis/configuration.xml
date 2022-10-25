@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="HostVo" type="javaex.vo.HostVo" />
+		<typeAlias alias="KeywordVo" type="javaex.vo.KeywordVo" />
+		<typeAlias alias="ReviewVo" type="javaex.vo.ReviewVo" />
+		<typeAlias alias="PhotoVo" type="javaex.vo.PhotoVo" />
+		<typeAlias alias="FinishPVo" type="javaex.vo.FinishPVo" />
+		<typeAlias alias="BookingVo" type="javaex.vo.BookingVo" />
+		<typeAlias alias="SearchListVo" type="javaex.vo.SearchListVo" />
+		<typeAlias alias="UserVo" type="javaex.vo.UserVo" />
+		<typeAlias alias="AbleVo" type="javaex.vo.AbleVo" />
+		<typeAlias alias="HeartVo" type="javaex.vo.HeartVo" />
+		<typeAlias alias="MyDogVo" type="javaex.vo.MyDogVo" />
+		<typeAlias alias="MessageVo" type="javaex.vo.MessageVo" />
+		<typeAlias alias="ItemVo" type="javaex.vo.ItemVo" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/mappers/booking.xml" />
+		<mapper resource="mybatis/mappers/finishP.xml" />
+		<mapper resource="mybatis/mappers/hostinfo.xml" />
+		<mapper resource="mybatis/mappers/review.xml" />
+		<mapper resource="mybatis/mappers/searchList.xml" />
+		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/mydog.xml" />
+		<mapper resource="mybatis/mappers/message.xml" />
+		<mapper resource="mybatis/mappers/item.xml" />
+	</mappers>
+</configuration>

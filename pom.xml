@@ -3,7 +3,13 @@
 	<groupId>project</groupId>
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+    <modules>
+        <module>frontOffice</module>
+		<module>backOffice</module>
+		<module>batch</module>
+		<module>common</module>
+	</modules>
+    <packaging>pom</packaging>
 
 	<!-- Spring Labrary 의존성 추가-->
 	<properties>
@@ -95,7 +101,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.3</version>
 				<configuration>
-					<warSourceDirectory>webapp</warSourceDirectory>
+					<warSourceDirectory>frontOffice/webapp</warSourceDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
